@@ -2,7 +2,6 @@
  * 氨基酸
  */
 const base = require('./base')
-const Enzyme = require('./enzyme')
 
 function insert(b) {
     return function() {
@@ -152,73 +151,7 @@ function lpu() {
     }
     this.quit()
 }
-const acid = [
-    [null, cut, del, swi],
-    [mvr, mvl, cop, off],
-    [ina, inc, ing, int],
-    [rpy, rpu, lpy, lpu]
-]
-const acidIndex = "ACGT"
 
-function translate(s) {
-    let result = new Enzyme([])
-    let results = [result]
-    for (let i = 0; i < s.length - 1; i += 2) {
-        let amino = acid[acidIndex.indexOf(s[i])][acidIndex.indexOf(s[i + 1])]
-        if (amino)
-            result.gene.push(amino)
-        else if (result.gene.length) {
-            result.like = fold(result.gene)
-            result = new Enzyme([])
-            results.push(result)
-        }
-    }
-    result.like = fold(result.gene)
-    return results
-}
-//直行
-function s(cd) {
-    return cd
-}
-//右转
-function r(cd) {
-    return { u: 'r', d: 'l', l: 'u', r: 'd' }[cd]
-}
-//左转
-function l(cd) {
-    return { u: 'l', d: 'r', l: 'd', r: 'u' }[cd]
-}
-//折叠
-function fold(enzyme) {
-    if (enzyme.length < 3) return null
-    let d = foldMap[enzyme[0].name].name
-    if (d === 's') d = 'u'
-    let cd = d
-    for (let i = 1; i < enzyme.length - 1; i++) {
-        cd = foldMap[enzyme[i].name](cd)
-    }
-    if (d == cd) return 'A'
-    if (d == r(cd)) return 'C'
-    if (d == l(cd)) return 'G'
-    if (d == r(r(cd))) return 'T'
-}
-const foldMap = {
-    cut: s,
-    del: s,
-    swi: r,
-    mvr: s,
-    mvl: s,
-    cop: r,
-    off: l,
-    ina: s,
-    inc: r,
-    ing: r,
-    int: l,
-    rpy: r,
-    rpu: l,
-    lpy: l,
-    lpu: l
-}
 module.exports = {
     cut,
     del,
@@ -234,6 +167,5 @@ module.exports = {
     rpy,
     rpu,
     lpy,
-    lpu,
-    translate
+    lpu
 }
