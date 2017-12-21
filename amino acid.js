@@ -15,16 +15,16 @@ function insert(b) {
 function cut() {
     let s = this.s
     this.s = s.slice(0, this.p + 1)
-    this.ss.add(this.s)
-    this.ss.add(s.slice(this.p + 1))
-    this.ss.delete(s)
+    this.produce(this.s)
+    this.produce(s.slice(this.p + 1))
+    this.remove(s)
     let s1 = this.s1
     if (s1) { //剪切补串
         if (this.p1 > 0 && this.p1 < s1.length) {
             this.s1 = s1.slice(this.p1)
-            this.ss.add(s1.slice(0, this.p1))
-            this.ss.add(this.s1)
-            this.ss.delete(s1)
+            this.produce(s1.slice(0, this.p1))
+            this.produce(this.s1)
+            this.remove(s1)
             this.p1 = 0
         }
     }
@@ -71,7 +71,7 @@ function cop() {
 function off() {
     this.copying = false
     if (this.s1) {
-        this.ss.add(this.s1)
+        this.produce(this.s1)
         this.s1 = null
     }
 }

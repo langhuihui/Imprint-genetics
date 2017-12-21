@@ -1,0 +1,38 @@
+{
+    "name": "imprint-genetics",
+    "version": "1.0.0",
+    "description": "* 本程序实现的功能是《GEB》一书中描写的印符遗传学的内容\r * 印符遗传学是真实的遗传学的简化版本\r * 该理论和自指概念有关，讲述了RNA如何复制自己的过程\r ## 基本概念\r 1. 碱基",
+    "main": "test.js",
+    "scripts": {
+        "build": "webpack --progress --colors --watch -d"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/langhuihui/Imprint-genetics.git"
+    },
+    "author": "dexter",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/langhuihui/Imprint-genetics/issues"
+    },
+    "homepage": "https://github.com/langhuihui/Imprint-genetics#readme",
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "css-loader": "^0.28.7",
+        "file-loader": "^1.1.6",
+        "iview": "^2.7.4",
+        "pug": "^2.0.0-rc.4",
+        "pug-loader": "^2.3.0",
+        "script-loader": "^0.7.2",
+        "style-loader": "^0.19.1",
+        "vue": "^2.5.13",
+        "vue-loader": "^13.6.0",
+        "vue-resource": "^1.3.4",
+        "vue-router": "^3.0.1",
+        "vue-style-loader": "^3.0.3",
+        "vue-template-compiler": "^2.5.13",
+        "vuex": "^3.0.1",
+        "webpack": "^3.10.0"
+    }
+}

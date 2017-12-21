@@ -67,6 +67,7 @@ const foldMap = {
     lpu: l
 }
 module.exports = function(rna) {
+    rna.translated = true
     let result = new Enzyme(rna)
     let results = [result]
     for (let i = 0; i < rna.length - 1; i += 2) {

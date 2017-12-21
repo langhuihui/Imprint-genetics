@@ -3,7 +3,10 @@ function* trace(from) {
     let tmp = from
     while (tmp.from) {
         yield tmp.from
-        tmp = tmp.from[0] || tmp.from
+        if (tmp.from[0] && tmp.from[0] instanceof RNA) {
+            tmp = tmp.from[0]
+        } else
+            tmp = tmp.from
     }
 }
 class RNA extends Array {
@@ -13,10 +16,14 @@ class RNA extends Array {
     trace() {
         return Array.from(trace(this.from))
     }
-    static parse() {
+    static parse(s) {
         let rna = s.split('')
         Object.setPrototypeOf(rna, RNA.prototype)
         return rna
     }
+    equal(another) {
+        return this.toString() === another.toString()
+    }
 }
+RNA.prototype.age = 0
 module.exports = RNA

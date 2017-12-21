@@ -1,4 +1,4 @@
-const aminoAcid = require('./amino acid')
+const ribosome = require('./ribosome')
 let ss = new Set()
 let enzymes = new Map()
 
@@ -27,7 +27,7 @@ function exec(s) {
 }
 
 function translate(string) {
-    aminoAcid.translate(string).forEach(enzyme => {
+    ribosome(string).forEach(enzyme => {
         if (!enzyme.like) return
         if (!enzymes.has(enzyme.toString())) {
             enzymes.set(enzyme.toString(), enzyme)
