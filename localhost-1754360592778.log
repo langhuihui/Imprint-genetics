@@ -1,0 +1,58 @@
+client:495 [vite] connecting...
+client:618 [vite] connected.
+rna.ts:19  Uncaught TypeError: Spread syntax requires ...iterable[Symbol.iterator] to be a function
+    at new RNA (rna.ts:19:14)
+    at RNA.slice (<anonymous>)
+    at RNA.getDipeptides (rna.ts:69:28)
+    at Ribosome.translate (ribosome.ts:12:28)
+    at step (genetics-store.ts:100:35)
+    at App.tsx:25:9
+rna.ts:19  Uncaught TypeError: Spread syntax requires ...iterable[Symbol.iterator] to be a function
+    at new RNA (rna.ts:19:14)
+    at RNA.map (<anonymous>)
+    at RNAVisualization.tsx:75:22
+    at Array.map (<anonymous>)
+    at RNAVisualization (RNAVisualization.tsx:42:21)
+    at renderWithHooks (react-dom.development.js:15486:18)
+    at updateFunctionComponent (react-dom.development.js:19617:20)
+    at beginWork (react-dom.development.js:21640:16)
+    at HTMLUnknownElement.callCallback2 (react-dom.development.js:4164:14)
+    at Object.invokeGuardedCallbackDev (react-dom.development.js:4213:16)
+rna.ts:19  Uncaught TypeError: Spread syntax requires ...iterable[Symbol.iterator] to be a function
+    at new RNA (rna.ts:19:14)
+    at RNA.map (<anonymous>)
+    at RNAVisualization.tsx:75:22
+    at Array.map (<anonymous>)
+    at RNAVisualization (RNAVisualization.tsx:42:21)
+    at renderWithHooks (react-dom.development.js:15486:18)
+    at updateFunctionComponent (react-dom.development.js:19617:20)
+    at beginWork (react-dom.development.js:21640:16)
+    at HTMLUnknownElement.callCallback2 (react-dom.development.js:4164:14)
+    at Object.invokeGuardedCallbackDev (react-dom.development.js:4213:16)
+hook.js:608  The above error occurred in the <RNAVisualization> component:
+
+    at RNAVisualization (http://localhost:5177/src/components/RNAVisualization.tsx?t=1754357523806:25:39)
+    at div
+    at div
+    at div
+    at main
+    at div
+    at V (http://localhost:5177/node_modules/.vite/deps/next-themes.js?v=c6c90b57:44:25)
+    at J (http://localhost:5177/node_modules/.vite/deps/next-themes.js?v=c6c90b57:42:18)
+    at ThemeProvider (http://localhost:5177/src/components/theme-provider.tsx:20:33)
+    at App (http://localhost:5177/src/App.tsx?t=1754357540811:34:7)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+overrideMethod @ hook.js:608
+react-dom.development.js:12056  Uncaught TypeError: Spread syntax requires ...iterable[Symbol.iterator] to be a function
+    at new RNA (rna.ts:19:14)
+    at RNA.map (<anonymous>)
+    at RNAVisualization.tsx:75:22
+    at Array.map (<anonymous>)
+    at RNAVisualization (RNAVisualization.tsx:42:21)
+    at renderWithHooks (react-dom.development.js:15486:18)
+    at updateFunctionComponent (react-dom.development.js:19617:20)
+    at beginWork (react-dom.development.js:21640:16)
+    at beginWork$1 (react-dom.development.js:27465:14)
+    at performUnitOfWork (react-dom.development.js:26596:12)

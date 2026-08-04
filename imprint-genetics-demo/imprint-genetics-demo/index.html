@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/dna-icon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>印符遗传学演示 - RNA翻译与酶活性仿真</title>
+  <meta name="description" content="基于《GEB》概念的印符遗传学可视化演示平台，展示RNA序列翻译、酶生成和催化过程的生物学仿真。" />
+  <meta name="keywords" content="印符遗传学,RNA翻译,酶活性,生物仿真,GEB,分子生物学" />
+
+  <!-- 预加载关键资源 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- 自定义CSS变量 -->
+  <style>
+    :root {
+      --primary-bg: #0f172a;
+      --secondary-bg: #1e293b;
+      --accent-green: #10b981;
+      --accent-blue: #3b82f6;
+      --accent-orange: #f59e0b;
+      --text-primary: #ffffff;
+      --text-secondary: #94a3b8;
+      --border-color: #334155;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background: linear-gradient(135deg, var(--primary-bg) 0%, #1e3a8a 50%, var(--primary-bg) 100%);
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 加载动画 */
+    .loading-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .dna-helix {
+      width: 60px;
+      height: 60px;
+      border: 3px solid var(--accent-green);
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      color: var(--text-secondary);
+      font-size: 14px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 0.6;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* 隐藏加载界面 */
+    .loaded .loading-container {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 加载界面 -->
+  <div class="loading-container">
+    <div class="dna-helix"></div>
+    <div class="loading-text">正在初始化印符遗传学仿真系统...</div>
+  </div>
+
+  <!-- 主应用容器 -->
+  <div id="root"></div>
+
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- 页面加载完成后隐藏加载界面 -->
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(() => {
+        document.body.classList.add('loaded');
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>
